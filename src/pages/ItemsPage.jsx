@@ -9,7 +9,7 @@ function ItemsPage() {
     const [encName, setencName] = useState();
     const [count, setCount] = useState();
     const fetchImage = async () => {
-      const res = await fetch('http://13.57.219.246:8080/item');
+      const res = await fetch('https://13.57.219.246:8080/item');
       const item = await res.json()
       
       setImg("data:image/png;base64,"+item.img);
@@ -35,7 +35,7 @@ function ItemsPage() {
         name: encName,
       };
       console.log(JSON.stringify(formJson));
-      const data = await fetch('http://13.57.219.246:8080/guesscheck', {method: 'POST',
+      const data = await fetch('https://13.57.219.246:8080/guesscheck', {method: 'POST',
       headers: {'Accept': 'application/json',
       'Content-Type': 'application/json'},
       body: JSON.stringify(formJson)});
