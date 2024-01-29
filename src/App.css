@@ -20,6 +20,16 @@
   cursor: pointer;
   
 }
+
+.message1{
+  color: Green;
+   
+}
+.message2{
+  color: red;
+  
+}
+
 h1 {
   font-family: "Runescape UF";
   font-weight: normal;
