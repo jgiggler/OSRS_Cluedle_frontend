@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 
 import Message from '../components/message';
-
+const hostname = 'https://osrsflask.joelgilger.com'
+// const hostname = 'http://127.0.0.1:5000'
 function ItemsPage() {
     
     const [isCorrect, setisCorrect] = useState(undefined)
@@ -9,7 +10,7 @@ function ItemsPage() {
     const [encName, setencName] = useState();
     const [count, setCount] = useState();
     const fetchImage = async () => {
-      const res = await fetch('https://osrsflask.joelgilger.com/item');
+      const res = await fetch(hostname+'/item');
       const item = await res.json()
       
       setImg("data:image/png;base64,"+item.img);
@@ -35,7 +36,7 @@ function ItemsPage() {
         name: encName,
       };
       console.log(JSON.stringify(formJson));
-      const data = await fetch('https://osrsflask.joelgilger.com/guesscheck', {method: 'POST',
+      const data = await fetch(hostname+'/guesscheck', {method: 'POST',
       headers: {'Accept': 'application/json',
       'Content-Type': 'application/json'},
       body: JSON.stringify(formJson)});
