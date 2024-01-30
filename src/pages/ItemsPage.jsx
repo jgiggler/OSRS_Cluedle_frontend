@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 
 import Message from '../components/message';
-// const hostname = 'https://osrsflask.joelgilger.com'
-const hostname = 'http://127.0.0.1:5000'
+const hostname = 'https://osrsflask.joelgilger.com'
+// const hostname = 'http://127.0.0.1:5000'
 function ItemsPage() {
     
     const [isCorrect, setisCorrect] = useState(undefined)
