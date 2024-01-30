@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 
 import Message from '../components/message';
-const hostname = 'https://osrsflask.joelgilger.com'
-// const hostname = 'http://127.0.0.1:5000'
+// const hostname = 'https://osrsflask.joelgilger.com'
+const hostname = 'http://127.0.0.1:5000'
 function ItemsPage() {
     
     const [isCorrect, setisCorrect] = useState(undefined)
@@ -40,7 +40,7 @@ function ItemsPage() {
       headers: {'Accept': 'application/json',
       'Content-Type': 'application/json'},
       body: JSON.stringify(formJson)});
-      console.log(data)
+      
       const correct = await data.json()
       
       console.log(correct.correct)
@@ -59,7 +59,7 @@ function ItemsPage() {
         <img className='item_image' src={img} />
         
         <form method='POST' onSubmit={handleSubmit}>
-          <label for="guess" >Guess: </label>
+          <label htmlFor="guess" >Guess: </label>
           <input type='text' name="guess" id='guess'  rows="1" placeholder='...'
           
           />
