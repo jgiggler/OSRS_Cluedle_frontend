@@ -34,6 +34,7 @@ h1 {
   font-family: "Runescape UF";
   font-weight: normal;
   color: yellow;
+  text-decoration:underline;
 }
 
 .NavBar {
@@ -74,9 +75,27 @@ h1 {
   height: 200px;
   width: auto;
 }
+.monster_image {
+  border: 2px white solid;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: auto;
+}
+.new{
+  padding: 10px;
+  background-image: linear-gradient(yellow, red);
+  
+}
+.new:hover{
+  padding: 10px;
+  transform: scale(1.15);
+  cursor: pointer;
+  
+}
 .card {
   font-family: "Runescape UF";
   color: yellow;
+  margin-bottom: -2em;
 }
 p{color: yellow;}
 footer {
@@ -86,6 +105,9 @@ footer {
   bottom: 0;
   width: 100%;
   height: 2.5rem;
+}
+form {
+  padding-bottom: 4em;
 }
 @keyframes logo-spin {
   from {

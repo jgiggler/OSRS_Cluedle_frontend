@@ -1,27 +1,28 @@
 import React, {useEffect, useState} from 'react';
 
-import Message from '../components/message';
+import Message from '../components/message2';
 const hostname = 'https://osrsflask.joelgilger.com'
 // const hostname = 'http://127.0.0.1:5000'
-function ItemsPage() {
+
+function MonstersPage() {
     
     const [isCorrect, setisCorrect] = useState(undefined)
     const [img, setImg] = useState();
     const [encName, setencName] = useState();
     const [count, setCount] = useState();
     const fetchImage = async () => {
-      const res = await fetch(hostname+'/item');
-      const item = await res.json()
+      const res = await fetch(hostname+'/monster');
+      const monster = await res.json()
       
-      setImg("data:image/png;base64,"+item.img);
-      setencName(item.name)
+      setImg(monster.img);
+      setencName(monster.name)
     };
 
     useEffect(()=> {
       fetchImage();
     }, []);
 
-    async function newItem(e) {
+    async function newMonster(e) {
       e.preventDefault();
       setisCorrect(undefined)
       fetchImage();
@@ -36,7 +37,7 @@ function ItemsPage() {
         name: encName,
       };
       console.log(JSON.stringify(formJson));
-      const data = await fetch(hostname+'/guesscheck', {method: 'POST',
+      const data = await fetch(hostname+'/guesscheckmonster', {method: 'POST',
       headers: {'Accept': 'application/json',
       'Content-Type': 'application/json'},
       body: JSON.stringify(formJson)});
@@ -52,16 +53,14 @@ function ItemsPage() {
     
     return (
         <>
-        <h1>Guess Old School Runescape Items</h1>
-        <p className='card'>You can guess random items in the game based on their examine text. Beware some items have different versions<p>For example:
-            Dragon Dagger(p) and Dragon Dagger(p++)</p>
+        <h1>Guess Old School Runescape Monsters</h1>
+        <p className='card'>You can guess random Monsters and NPC's in the game based on their examine text. Beware some characters have the same examine text so be sure to guess all variations. <p>For example:
+            Dark Ankou and Ankou</p>
         </p>
-
-        <button className='new' onClick={newItem}>New Item</button>
-        
+        <button className='new' onClick={newMonster}>New Monster</button>
       <div className="card">
         
-        <img className='item_image' src={img} />
+        <p className='monster_image'>{img}</p>
         
         <form method='POST' onSubmit={handleSubmit}>
           <label htmlFor="guess" >Guess: </label>
@@ -78,4 +77,4 @@ function ItemsPage() {
     )
 }
 
-export default ItemsPage;
+export default MonstersPage;

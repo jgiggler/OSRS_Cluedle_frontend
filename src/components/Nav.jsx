@@ -8,10 +8,9 @@ function Nav() {
   return (
     <nav className='NavBar'>
         
-        <Link to="/" className='NavBarChild child-1' onClick={() => setIsOpen(false)}>Home</Link>
-        <Link to="/item" className='NavBarChild child-2' onClick={() => setIsOpen(false)}>Items</Link>
-        {/* <Link to="/items">Items</Link>
-        <Link to="/monsters">Monsters</Link> */}
+        <Link to="/" className='NavBarChild' onClick={() => setIsOpen(false)}>Home</Link>
+        <Link to="/item" className='NavBarChild' onClick={() => setIsOpen(false)}>Items</Link>
+        <Link to="/monster" className='NavBarChild' onClick={() => setIsOpen(false)}>Monsters</Link>
     </nav>
   );
 }
